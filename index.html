@@ -227,7 +227,8 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[70vh] bg-slate-50">
-        <video autoplay loop muted playsinline class="video-background"><source src="https://videos.pexels.com/video-files/5963900/5963900-hd_1920_1080_25fps.mp4" type="video/mp4"></video>
+        <!-- VÍDEO CORRIGIDO -->
+        <video autoplay loop muted playsinline class="video-background"><source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4" type="video/mp4"></video>
         <div class="absolute inset-0 hero-overlay z-0"></div>
         <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left py-16 md:py-24">
             <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
@@ -305,9 +306,8 @@
         </div>
     </section>
 
-    <!-- Parallax Section -->
-    <section class="parallax-section py-24 text-white relative">
-        <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1540450596910-1551a6d213b2?q=80&w=1740&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
+    <!-- Parallax Section (IMAGEM CORRIGIDA) -->
+    <section class="parallax-section py-24 text-white relative" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1932&auto=format&fit=crop');">
         <div class="absolute inset-0 bg-black opacity-60"></div>
         <div class="container mx-auto px-4 relative z-10 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold mb-6">Pronta para iniciar sua jornada?</h2>
@@ -401,7 +401,7 @@
 
         // --- Scripts de Menu e Navegação ---
         document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
-        document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
+        document.querySelectorAll('#mobile-menu a, footer a[href^="#"]').forEach(link => link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -491,4 +491,8 @@
                 }
             }
         }
-        new IntersectionObserver((e, o) => { e.forEach(entry => { if(entry.isIntersecting && !chatbotInitialized) { chatbotInitia
+        new IntersectionObserver((e, o) => { e.forEach(entry => { if(entry.isIntersecting && !chatbotInitialized) { chatbotInitialized = true; runChat(); o.disconnect(); } }); }, { threshold: 0.5 }).observe(chatContainer);
+
+    </script>
+</body>
+</html>
