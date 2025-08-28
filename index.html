@@ -1,20 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- =================================================================== -->
+    <!-- ======================= SEO META TAGS ============================= -->
+    <!-- =================================================================== -->
     <title>Laura Leite Terapias - Barras de Access, Reiki e Tarot em Curitiba</title>
+    <meta name="description" content="Encontre equilíbrio e bem-estar em Curitiba com Laura Leite. Terapias holísticas como Barras de Access, Reiki e Tarot para autoconhecimento, alívio do estresse e expansão da consciência.">
+    <meta name="keywords" content="terapias holísticas, barras de access, reiki, tarot, terapeuta holística, curitiba, bem-estar, autoconhecimento, ansiedade, estresse, energia">
+    <meta name="author" content="Laura Leite Terapias">
+    <link rel="canonical" href="https://www.seusite.com.br"> <!-- IMPORTANTE: Troque pela URL final do seu site -->
+
+    <!-- Open Graph Tags (para compartilhamento no Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Laura Leite Terapias - Barras de Access, Reiki e Tarot em Curitiba">
+    <meta property="og:description" content="Descubra o poder das terapias holísticas para uma vida mais plena. Sessões de Barras de Access, Reiki e Tarot em Curitiba.">
+    <meta property="og:image" content="https://www.seusite.com.br/imagem-para-compartilhar.jpg"> <!-- IMPORTANTE: Crie e suba uma imagem representativa -->
+    <meta property="og:url" content="https://www.seusite.com.br"> <!-- IMPORTANTE: Troque pela URL final do seu site -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card Tags (para compartilhamento no Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Laura Leite Terapias - Barras de Access, Reiki e Tarot em Curitiba">
+    <meta name="twitter:description" content="Descubra o poder das terapias holísticas para uma vida mais plena. Sessões de Barras de Access, Reiki e Tarot em Curitiba.">
+    <meta name="twitter:image" content="https://www.seusite.com.br/imagem-para-compartilhar.jpg"> <!-- IMPORTANTE: Use a mesma imagem do Open Graph -->
+    <!-- =================================================================== -->
+    <!-- =================== FIM DAS SEO META TAGS ========================= -->
+    <!-- =================================================================== -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animate On Scroll CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
             overflow-x: hidden;
         }
         
@@ -224,7 +250,6 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            opacity: 0.7;
         }
 
         .parallax-section {
@@ -234,7 +259,6 @@
             background-size: cover;
         }
 
-        /* Estilos do Chatbot */
         .chat-container {
             height: 550px;
             overflow-y: auto;
@@ -246,112 +270,39 @@
             display: flex;
             flex-direction: column;
         }
-
-        .chat-message-wrapper {
-            display: flex;
-            align-items: flex-end;
-            margin-bottom: 0.5rem;
-        }
+        .chat-message-wrapper { display: flex; align-items: flex-end; margin-bottom: 0.5rem; }
         .chat-message-wrapper.client { justify-content: flex-end; }
         .chat-message-wrapper.chatbot { justify-content: flex-start; }
-
-        .chat-message-bubble {
-            max-width: 80%;
-            padding: 0.6rem 0.8rem;
-            border-radius: 0.5rem;
-            word-wrap: break-word;
-            position: relative;
-            font-size: 0.95rem;
-            line-height: 1.3;
-        }
-        .chat-message-bubble.client {
-            background-color: #DCF8C6;
-            margin-left: 0.5rem;
-            border-bottom-right-radius: 0.1rem;
-            color: #333;
-        }
-        .chat-message-bubble.chatbot {
-            background-color: #FFFFFF;
-            margin-right: 0.5rem;
-            border-bottom-left-radius: 0.1rem;
-            color: #333;
-        }
-        
-        .chat-avatar {
-            width: 2.2rem;
-            height: 2.2rem;
-            border-radius: 9999px;
-            object-fit: cover;
-            flex-shrink: 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
+        .chat-message-bubble { max-width: 80%; padding: 0.6rem 0.8rem; border-radius: 0.5rem; word-wrap: break-word; position: relative; font-size: 0.95rem; line-height: 1.3; }
+        .chat-message-bubble.client { background-color: #DCF8C6; margin-left: 0.5rem; border-bottom-right-radius: 0.1rem; color: #333; }
+        .chat-message-bubble.chatbot { background-color: #FFFFFF; margin-right: 0.5rem; border-bottom-left-radius: 0.1rem; color: #333; }
+        .chat-avatar { width: 2.2rem; height: 2.2rem; border-radius: 9999px; object-fit: cover; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .chat-message-wrapper.client .chat-avatar { order: 2; margin-left: 0.5rem; }
         .chat-message-wrapper.chatbot .chat-avatar { order: 1; margin-right: 0.5rem; }
-
-        .chat-action-button {
-            background-color: #25D366;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            text-align: center;
-            display: block;
-            margin: 1rem auto;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-        }
-        .chat-action-button:hover {
-            background-color: #1DA851;
-            transform: translateY(-2px);
-        }
-
-        .body-gradient {
-            background: linear-gradient(to bottom right, #f8faff, #fdf5f5);
-        }
+        .chat-action-button { background-color: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 600; text-align: center; display: block; margin: 1rem auto; transition: background-color 0.3s ease, transform 0.3s ease; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
+        .chat-action-button:hover { background-color: #1DA851; transform: translateY(-2px); }
+        .body-gradient { background: linear-gradient(to bottom right, #f8faff, #fdf5f5); }
+        #image-modal, #member-modal { background-color: rgba(0, 0, 0, 0.8); transition: opacity 0.3s ease; opacity: 0; pointer-events: none; }
+        #image-modal.active, #member-modal.active { opacity: 1; pointer-events: auto; }
+        #close-image-modal, #close-member-modal { background: none; border: none; cursor: pointer; }
+        #image-modal > div, #member-modal > div { transform: scale(0.9); transition: transform 0.3s ease; }
+        #image-modal.active > div, #member-modal.active > div { transform: scale(1); }
+        body.modal-open { overflow: hidden; }
+        .instagram-video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; justify-content: center; align-items: center; }
+        .instagram-video-embed { width: 100%; max-width: 320px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background-color: #f8f8f8; }
+        .instagram-video-embed iframe { width: 100%; height: 560px; border: none; }
         
-        #image-modal, #member-modal {
-            background-color: rgba(0, 0, 0, 0.8);
-            transition: opacity 0.3s ease;
+        /* NOVO ESTILO: Para o botão "Voltar ao Topo" */
+        .back-to-top {
+            transition: opacity 0.3s, transform 0.3s;
             opacity: 0;
+            transform: translateY(20px);
             pointer-events: none;
         }
-        #image-modal.active, #member-modal.active {
+        .back-to-top.visible {
             opacity: 1;
+            transform: translateY(0);
             pointer-events: auto;
-        }
-
-        #close-image-modal, #close-member-modal {
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        #image-modal > div, #member-modal > div {
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-        #image-modal.active > div, #member-modal.active > div {
-            transform: scale(1);
-        }
-
-        body.modal-open {
-            overflow: hidden;
-        }
-        
-        .instagram-video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-        }
-        .instagram-video-embed {
-            width: 100%;
-            max-width: 320px;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -378,10 +329,20 @@
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- =================================================================== -->
+    <!-- ======================= BOTÕES FLUTUANTES ========================= -->
+    <!-- =================================================================== -->
+    <!-- Botão Voltar ao Topo (NOVO) -->
+    <a href="#home" id="back-to-top" class="back-to-top fixed bottom-24 right-6 z-50 bg-pink-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-pink-600 transition-all" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up text-lg"></i>
+    </a>
+
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Gostaria de mais informações sobre as terapias." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all floating-whatsapp" data-aos="zoom-in" data-aos-delay="1000">
         <i class="fab fa-whatsapp text-2xl"></i>
     </a>
+    <!-- =================================================================== -->
+
 
     <!-- Header/Navigation -->
     <header class="bg-white shadow-sm sticky top-0 z-40">
@@ -395,6 +356,7 @@
                 <a href="#about" class="font-medium hover:text-pink-500 transition">Sobre</a>
                 <a href="#services" class="font-medium hover:text-pink-500 transition">Terapias</a>
                 <a href="#journeys" class="font-medium hover:text-pink-500 transition">Jornadas</a>
+                <a href="#instagram-videos" class="font-medium hover:text-pink-500 transition">Instagram</a>
                 <a href="#testimonials" class="font-medium hover:text-pink-500 transition">Depoimentos</a>
             </nav>
             <button class="md:hidden text-gray-600" id="menu-toggle">
@@ -409,6 +371,7 @@
                 <a href="#about" class="font-medium hover:text-pink-500 transition">Sobre</a>
                 <a href="#services" class="font-medium hover:text-pink-500 transition">Terapias</a>
                 <a href="#journeys" class="font-medium hover:text-pink-500 transition">Jornadas</a>
+                <a href="#instagram-videos" class="font-medium hover:text-pink-500 transition">Instagram</a>
                 <a href="#testimonials" class="font-medium hover:text-pink-500 transition">Depoimentos</a>
             </div>
         </div>
@@ -416,16 +379,22 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative py-16 md:py-24 overflow-hidden flex items-center justify-center min-h-[70vh]">
+        <!-- =================================================================== -->
+        <!-- ======================= VÍDEO CORRIGIDO ========================= -->
+        <!-- =================================================================== -->
+        <!-- INSTRUÇÃO: Baixe o vídeo da Pexels, crie uma pasta "videos" no seu projeto -->
+        <!-- e coloque o arquivo lá. Verifique se o nome do arquivo corresponde ao "src" abaixo. -->
         <video autoplay loop muted playsinline class="video-background">
-            <source src="https://videos.pexels.com/video-files/4017225/4017225-uhd_2560_1440_30fps.mp4" type="video/mp4">
+            <source src="videos/3998275-hd_1920_1080_25fps.mp4" type="video/mp4">
             Seu navegador não suporta a tag de vídeo.
         </video>
+        <!-- =================================================================== -->
         <div class="absolute inset-0 hero-overlay z-0"></div>
 
         <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left">
             <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
                 <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
-                    Encontre Equilíbrio e Bem-Estar com <span class="bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Terapias Holísticas</span>
+                    Encontre Equilíbrio e Bem-Estar com <span class="bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Terapias Holísticas em Curitiba</span>
                 </h1>
                 <p class="text-lg text-gray-200 mb-8">
                     Descubra o poder das Barras de Access, Reiki Usui Tibetano e Tarot para uma vida mais plena e consciente.
@@ -447,7 +416,7 @@
             </div>
             <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
                 <div class="relative">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19b5c22-f58761ba562f9df9d16f649a96c43c39.jpg" alt="Laura Leite" class="rounded-2xl shadow-xl w-full max-w-md">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19b5c22-f58761ba562f9df9d16f649a96c43c39.jpg" alt="Laura Leite, terapeuta holística em Curitiba" class="rounded-2xl shadow-xl w-full max-w-md">
                 </div>
             </div>
         </div>
@@ -478,12 +447,12 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center" data-aos="fade-right" data-aos-duration="800">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b7b933-18411c831d0c17ef5b22b5e8954b7193.jpg" alt="Laura Leite" class="rounded-2xl shadow-lg w-full max-w-xs">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b7b933-18411c831d0c17ef5b22b5e8954b7193.jpg" alt="Foto de Laura Leite" class="rounded-2xl shadow-lg w-full max-w-xs">
                 </div>
                 <div class="md:w-2/3 md:pl-12" data-aos="fade-left" data-aos-duration="800">
                     <h2 class="text-3xl font-bold mb-6">Sobre Laura Leite</h2>
                     <p class="text-gray-600 mb-6">Terapeuta holística dedicada a guiar pessoas em suas jornadas de autoconhecimento, cura e expansão da consciência. Com um profundo respeito pelo ser humano em sua integralidade, utilizo ferramentas poderosas para promover o bem-estar físico, mental e emocional.</p>
-                    <p class="text-gray-600 mb-6">Minha missão é criar um espaço seguro e acolhedor onde você possa se reconectar com sua essência, liberar bloqueios e acessar seu potencial máximo. Atendo em Curitiba/PR, oferecendo sessões personalizadas de Barras de Access, Reiki e Leituras Intuitivas de Tarot.</p>
+                    <p class="text-600 mb-6">Minha missão é criar um espaço seguro e acolhedor onde você possa se reconectar com sua essência, liberar bloqueios e acessar seu potencial máximo. Atendo em Curitiba/PR, oferecendo sessões personalizadas de Barras de Access, Reiki e Leituras Intuitivas de Tarot.</p>
                     <div class="flex flex-wrap gap-4">
                         <div class="bg-pink-50 border border-pink-100 rounded-lg px-4 py-2" data-aos="fade-up" data-aos-delay="100"><p class="font-medium text-pink-600">Terapias Energéticas</p></div>
                         <div class="bg-orange-50 border border-orange-100 rounded-lg px-4 py-2" data-aos="fade-up" data-aos-delay="200"><p class="font-medium text-orange-600">Autoconhecimento</p></div>
@@ -512,25 +481,43 @@
         </div>
     </section>
 
-    <!-- Instagram Videos Section -->
+    <!-- Video Demonstration Section -->
     <section id="video-demo" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">Conheça Nossas Terapias</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Veja um pouco mais sobre o nosso trabalho e as energias que movimentamos.
-                </p>
+                <h2 class="text-3xl font-bold mb-4">Um Momento de Conexão</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Assista a uma breve meditação guiada e sinta o poder da pausa e da reconexão interior.</p>
+            </div>
+            <div class="max-w-3xl mx-auto rounded-xl overflow-hidden shadow-xl" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="relative" style="padding-bottom: 56.25%;">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/inpok4MKV-w?si=7v2m967GQC78jLzL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Videos Section -->
+    <section id="instagram-videos" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Reels do Instagram</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Confira nossos últimos vídeos e inspirações no Instagram.</p>
             </div>
             <div class="instagram-video-grid" data-aos="fade-up" data-aos-delay="200">
                 <div class="instagram-video-embed">
-                    <iframe src="https://www.instagram.com/reel/DM_KlFYyI2W/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <iframe src="https://www.instagram.com/p/DM_KlFYyI2W/embed/" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
                 </div>
                 <div class="instagram-video-embed">
-                    <iframe src="https://www.instagram.com/reel/DLvPKDdglJV/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <iframe src="https://www.instagram.com/p/DLvPKDdglJV/embed/" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
                 </div>
                 <div class="instagram-video-embed">
-                    <iframe src="https://www.instagram.com/reel/DMyekGfADUM/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                    <iframe src="https://www.instagram.com/p/DJANXDFSYIr/embed/" width="100%" height="560" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
                 </div>
+            </div>
+            <div class="mt-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://instagram.com/lauraleiteterapias" target="_blank" class="btn-secondary font-semibold py-3 px-8 rounded-full inline-block">
+                    <i class="fab fa-instagram mr-2"></i> Ver Mais no Instagram
+                </a>
             </div>
         </div>
     </section>
@@ -628,14 +615,13 @@
             <div class="instagram-carousel-container" data-aos="fade-up" data-aos-delay="200">
                 <button id="scroll-left" class="carousel-btn left"><i class="fas fa-chevron-left"></i></button>
                 <div class="instagram-feed" id="instagram-feed-carousel">
-                    <img src="https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 1" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 2" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/2569847/pexels-photo-2569847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 3" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 4" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 5" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 6" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/3771077/pexels-photo-3771077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 7" class="rounded-lg">
-                    <img src="https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 8" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18b498f-e866fdbadd666a803174c3f390a60ee8.jpg" alt="Post Instagram" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18d301d-6c0dce77e6e9eca96b99418e1150be1e.jpg" alt="Post Instagram" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18ee40e-d999df9346e8ad7e74948c24c8751cf3.jpg" alt="Post Instagram" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd190d818-04e1afe0d2be8cdd7ea0c3e363ca0ab4.jpg" alt="Post Instagram" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd191317e-e7f2a75588083679b79b2c503ef32c87.jpg" alt="Post Instagram" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19389f7-275712548560791d6b5249432edaed9a.jpg" alt="Post Instagram" class="rounded-lg">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b3d3f3-19c7fb30c4b55fedcae4d673b23222f2.jpg" alt="Post Instagram" class="rounded-lg">
                 </div>
                 <button id="scroll-right" class="carousel-btn right"><i class="fas fa-chevron-right"></i></button>
             </div>
@@ -652,7 +638,7 @@
         <div class="container mx-auto px-4">
              <div class="grid md:grid-cols-4 gap-8">
                 <div data-aos="fade-up"><h3 class="text-xl font-bold mb-4">Laura Leite Terapias</h3><p class="text-gray-400">Seu espaço de cura, equilíbrio e autoconhecimento em Curitiba/PR.</p></div>
-                <div data-aos="fade-up" data-aos-delay="100"><h4 class="font-bold mb-4">Links Rápidos</h4><ul class="space-y-2"><li><a href="#home" class="text-gray-400 hover:text-white transition">Início</a></li><li><a href="#about" class="text-gray-400 hover:text-white transition">Sobre</a></li><li><a href="#services" class="text-gray-400 hover:text-white transition">Terapias</a></li><li><a href="#journeys" class="text-gray-400 hover:text-white transition">Jornadas</a></li></ul></div>
+                <div data-aos="fade-up" data-aos-delay="100"><h4 class="font-bold mb-4">Links Rápidos</h4><ul class="space-y-2"><li><a href="#home" class="text-gray-400 hover:text-white transition">Início</a></li><li><a href="#about" class="text-gray-400 hover:text-white transition">Sobre</a></li><li><a href="#services" class="text-gray-400 hover:text-white transition">Terapias</a></li><li><a href="#journeys" class="text-gray-400 hover:text-white transition">Jornadas</a></li><li><a href="#instagram-videos" class="text-gray-400 hover:text-white transition">Instagram</a></li></ul></div>
                 <div data-aos="fade-up" data-aos-delay="200"><h4 class="font-bold mb-4">Contato</h4><ul class="space-y-2"><li class="flex items-center"><i class="fab fa-whatsapp text-gray-400 mr-2"></i><span class="text-gray-400">(41) 90000-0000</span></li><li class="flex items-center"><i class="fas fa-map-marker-alt text-gray-400 mr-2"></i><span class="text-gray-400">Atendimentos em Curitiba/PR</span></li></ul></div>
                 <div data-aos="fade-up" data-aos-delay="300"><h4 class="font-bold mb-4">Redes Sociais</h4><div class="flex space-x-4"><a href="https://www.instagram.com/lauraleiteterapias/" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a><a href="https://www.instagram.com/lauraleiteadv8/" target="_blank" title="Perfil Pessoal" class="text-gray-400 hover:text-white transition"><i class="fas fa-user text-xl"></i></a></div></div>
             </div>
@@ -669,6 +655,21 @@
             duration: 800,
             once: true,
         });
+
+        // ===================================================================
+        // ======================= NOVO SCRIPT ===============================
+        // ===================================================================
+        // Lógica para o botão "Voltar ao Topo"
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Mostra o botão após rolar 300px
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        // ===================================================================
 
         document.getElementById('menu-toggle').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
