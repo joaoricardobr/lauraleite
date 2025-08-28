@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,7 +16,6 @@
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            background-color: #fdfdff; /* Fundo base muito claro */
         }
         
         .hero-overlay {
@@ -61,7 +61,7 @@
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.1); /* Efeito de brilho suave */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .testimonial-card {
@@ -71,7 +71,7 @@
         
         .testimonial-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(167, 139, 250, 0.15); /* Efeito de brilho lilás */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
         
         .floating-whatsapp {
@@ -94,12 +94,17 @@
             display: flex;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
             gap: 1rem;
             padding-bottom: 1rem;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
-        .instagram-feed::-webkit-scrollbar, .premium-members-feed::-webkit-scrollbar { display: none; }
+
+        .instagram-feed::-webkit-scrollbar, .premium-members-feed::-webkit-scrollbar {
+            display: none;
+        }
 
         .instagram-feed img {
             flex: 0 0 auto;
@@ -110,13 +115,16 @@
             cursor: pointer;
             transition: transform 0.2s ease;
         }
-        .instagram-feed img:hover { transform: scale(1.03); }
+        .instagram-feed img:hover {
+            transform: scale(1.03);
+        }
 
         .premium-members-feed .member-card {
             flex-shrink: 0;
             width: 180px;
             height: 280px;
             background-color: #1a1a1a;
+            color: #fff;
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -127,187 +135,408 @@
 
         .premium-members-feed .member-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4); /* Efeito de brilho rosa */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             z-index: 1;
         }
 
         .premium-members-feed .member-card .cover-image {
-            width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; transition: transform 0.3s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
         }
-        .premium-members-feed .member-card:hover .cover-image { transform: scale(1.05); }
+        .premium-members-feed .member-card:hover .cover-image {
+            transform: scale(1.05);
+        }
 
         .premium-members-feed .member-card .overlay {
-            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%);
-            opacity: 0; transition: opacity 0.3s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem; color: #fff; text-align: center;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+            color: #fff;
+            text-align: center;
         }
-        .premium-members-feed .member-card:hover .overlay { opacity: 1; }
+        .premium-members-feed .member-card:hover .overlay {
+            opacity: 1;
+        }
 
         .premium-members-feed .member-card .play-button {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3.5rem; color: rgba(255,255,255,0.8);
-            opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3.5rem;
+            color: rgba(255,255,255,0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        .premium-members-feed .member-card:hover .play-button { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        .premium-members-feed .member-card:hover .play-button {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
         
-        .carousel-btn {
-            position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; width: 40px; height: 40px;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10; cursor: pointer;
+        .premium-members-feed .member-card h3 {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
         }
-        .carousel-btn:hover { background-color: #fff; }
-        .carousel-btn.left { left: -20px; } .carousel-btn.right { right: -20px; }
+        .premium-members-feed .member-card p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+        }
 
-        .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.7; }
-        .parallax-section { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .carousel-btn:hover {
+            background-color: #fff;
+        }
+        .carousel-btn.left { left: -20px; }
+        .carousel-btn.right { right: -20px; }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
         /* Estilos do Chatbot */
-        .chat-container { height: 550px; overflow-y: auto; border-radius: 0.75rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png'); background-size: 50px; padding: 1.5rem 1rem; display: flex; flex-direction: column; }
-        .chat-message-wrapper { display: flex; align-items: flex-end; margin-bottom: 0.5rem; }
-        .chat-message-wrapper.client { justify-content: flex-end; } .chat-message-wrapper.chatbot { justify-content: flex-start; }
-        .chat-message-bubble { max-width: 80%; padding: 0.6rem 0.8rem; border-radius: 0.5rem; word-wrap: break-word; position: relative; font-size: 0.95rem; line-height: 1.3; }
-        .chat-message-bubble.client { background-color: #DCF8C6; margin-left: 0.5rem; border-bottom-right-radius: 0.1rem; color: #333; }
-        .chat-message-bubble.chatbot { background-color: #FFFFFF; margin-right: 0.5rem; border-bottom-left-radius: 0.1rem; color: #333; }
-        .chat-avatar { width: 2.2rem; height: 2.2rem; border-radius: 9999px; object-fit: cover; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .chat-message-wrapper.client .chat-avatar { order: 2; margin-left: 0.5rem; } .chat-message-wrapper.chatbot .chat-avatar { order: 1; margin-right: 0.5rem; }
-        .chat-action-button { background-color: #25D366; color: white; padding: 0.8rem 1.5rem; border-radius: 2rem; font-weight: 600; text-align: center; display: block; margin: 1rem auto; transition: background-color 0.3s ease, transform 0.3s ease; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); }
-        .chat-action-button:hover { background-color: #1DA851; transform: translateY(-2px); }
+        .chat-container {
+            height: 550px;
+            overflow-y: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-size: 50px;
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+        }
 
-        #image-modal, #member-modal { background-color: rgba(0, 0, 0, 0.8); transition: opacity 0.3s ease; opacity: 0; pointer-events: none; }
-        #image-modal.active, #member-modal.active { opacity: 1; pointer-events: auto; }
-        #close-image-modal, #close-member-modal { background: none; border: none; cursor: pointer; }
-        #image-modal > div, #member-modal > div { transform: scale(0.9); transition: transform 0.3s ease; }
-        #image-modal.active > div, #member-modal.active > div { transform: scale(1); }
-        body.modal-open { overflow: hidden; }
+        .chat-message-wrapper {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 0.5rem;
+        }
+        .chat-message-wrapper.client { justify-content: flex-end; }
+        .chat-message-wrapper.chatbot { justify-content: flex-start; }
+
+        .chat-message-bubble {
+            max-width: 80%;
+            padding: 0.6rem 0.8rem;
+            border-radius: 0.5rem;
+            word-wrap: break-word;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+        .chat-message-bubble.client {
+            background-color: #DCF8C6;
+            margin-left: 0.5rem;
+            border-bottom-right-radius: 0.1rem;
+            color: #333;
+        }
+        .chat-message-bubble.chatbot {
+            background-color: #FFFFFF;
+            margin-right: 0.5rem;
+            border-bottom-left-radius: 0.1rem;
+            color: #333;
+        }
         
-        .instagram-video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; justify-content: center; align-items: center; }
-        .instagram-video-embed { width: 100%; max-width: 320px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-    
-        /* --- Novos Divisores de Seção (Ondas) --- */
-        .wave-container {
-            line-height: 0; /* Remove espaço extra */
+        .chat-avatar {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 9999px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        .wave-container svg {
-            width: 100%;
-            height: auto;
-            max-height: 100px;
-        }
-        .fill-violet-50 { fill: #f5f3ff; }
-        .fill-rose-50 { fill: #fff1f2; }
-        .fill-slate-50 { fill: #f8fafc; }
-        .fill-emerald-50 { fill: #ecfdf5; }
-        .fill-gray-900 { fill: #111827; }
-        .bg-violet-50 { background-color: #f5f3ff; }
-        .bg-rose-50 { background-color: #fff1f2; }
-        .bg-slate-50 { background-color: #f8fafc; }
-        .bg-emerald-50 { background-color: #ecfdf5; }
+        .chat-message-wrapper.client .chat-avatar { order: 2; margin-left: 0.5rem; }
+        .chat-message-wrapper.chatbot .chat-avatar { order: 1; margin-right: 0.5rem; }
 
+        .chat-action-button {
+            background-color: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-align: center;
+            display: block;
+            margin: 1rem auto;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+        .chat-action-button:hover {
+            background-color: #1DA851;
+            transform: translateY(-2px);
+        }
+
+        .body-gradient {
+            background: linear-gradient(to bottom right, #f8faff, #fdf5f5);
+        }
+        
+        #image-modal, #member-modal {
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        #image-modal.active, #member-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #close-image-modal, #close-member-modal {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        #image-modal > div, #member-modal > div {
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        #image-modal.active > div, #member-modal.active > div {
+            transform: scale(1);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+        
+        .instagram-video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .instagram-video-embed {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
-<body class="text-gray-800">
-    <!-- Modals -->
+<body class="text-gray-800 body-gradient">
+    <!-- Image Modal (Lightbox for Instagram) -->
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-[9999] hidden">
-        <div class="relative max-w-3xl max-h-[90vh] p-4"><button id="close-image-modal" class="absolute -top-3 -right-3 text-white text-3xl hover:text-gray-300 z-10">×</button><img id="modal-image" src="" alt="Ampliada" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-lg"></div>
+        <div class="relative max-w-3xl max-h-[90vh] p-4">
+            <button id="close-image-modal" class="absolute -top-3 -right-3 text-white text-3xl hover:text-gray-300 transition-colors z-10">×</button>
+            <img id="modal-image" src="" alt="Ampliada" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-lg">
+        </div>
     </div>
+
+    <!-- Member Details Modal (Lightbox for Journeys) -->
     <div id="member-modal" class="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-[9998] hidden">
-        <div class="relative bg-white rounded-lg shadow-xl p-6 max-w-md w-full m-4 text-center"><button id="close-member-modal" class="absolute -top-3 -right-3 text-white text-3xl hover:text-gray-300 z-10">×</button><img id="member-modal-avatar" src="" alt="Cliente" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-pink-500"><h3 id="member-modal-name" class="font-bold text-2xl mb-2"></h3><p id="member-modal-role" class="text-pink-600 font-medium mb-4"></p><p id="member-modal-story" class="text-gray-700 leading-relaxed mb-6"></p><a id="member-modal-whatsapp-link" href="#" target="_blank" class="btn-primary text-white font-semibold py-3 px-8 rounded-full inline-block">Quero Iniciar Minha Jornada!</a></div>
+        <div class="relative bg-white rounded-lg shadow-xl p-6 max-w-md w-full m-4 text-center">
+            <button id="close-member-modal" class="absolute -top-3 -right-3 text-white text-3xl hover:text-gray-300 transition-colors z-10">×</button>
+            <img id="member-modal-avatar" src="" alt="Cliente em sua jornada" class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-pink-500">
+            <h3 id="member-modal-name" class="font-bold text-2xl text-gray-800 mb-2"></h3>
+            <p id="member-modal-role" class="text-pink-600 font-medium mb-4"></p>
+            <p id="member-modal-story" class="text-gray-700 text-base leading-relaxed mb-6"></p>
+            <a id="member-modal-whatsapp-link" href="#" target="_blank" class="btn-primary text-white font-semibold py-3 px-8 rounded-full inline-block">
+                Quero Iniciar Minha Jornada!
+            </a>
+        </div>
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Gostaria de mais informações sobre as terapias." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all floating-whatsapp" data-aos="zoom-in" data-aos-delay="1000"><i class="fab fa-whatsapp text-2xl"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Gostaria de mais informações sobre as terapias." target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all floating-whatsapp" data-aos="zoom-in" data-aos-delay="1000">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
 
-    <!-- Header -->
-    <header class="bg-slate-50 shadow-sm sticky top-0 z-40">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Laura Leite Terapias</span>
+            <div class="flex items-center">
+                <span class="text-2xl font-bold bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Laura Leite Terapias</span>
+            </div>
             <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="font-medium hover:text-pink-500 transition">Início</a><a href="#chatbot-section" class="font-medium hover:text-pink-500 transition">Chat Terapêutico</a><a href="#about" class="font-medium hover:text-pink-500 transition">Sobre</a><a href="#services" class="font-medium hover:text-pink-500 transition">Terapias</a><a href="#journeys" class="font-medium hover:text-pink-500 transition">Jornadas</a><a href="#testimonials" class="font-medium hover:text-pink-500 transition">Depoimentos</a>
+                <a href="#home" class="font-medium hover:text-pink-500 transition">Início</a>
+                <a href="#chatbot-section" class="font-medium hover:text-pink-500 transition">Chat Terapêutico</a>
+                <a href="#about" class="font-medium hover:text-pink-500 transition">Sobre</a>
+                <a href="#services" class="font-medium hover:text-pink-500 transition">Terapias</a>
+                <a href="#journeys" class="font-medium hover:text-pink-500 transition">Jornadas</a>
+                <a href="#testimonials" class="font-medium hover:text-pink-500 transition">Depoimentos</a>
             </nav>
-            <button class="md:hidden text-gray-600" id="menu-toggle"><i class="fas fa-bars text-2xl"></i></button>
+            <button class="md:hidden text-gray-600" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-50 py-4 px-4 shadow-lg"><div class="flex flex-col space-y-3"><a href="#home" class="font-medium hover:text-pink-500 transition">Início</a><a href="#chatbot-section" class="font-medium hover:text-pink-500 transition">Chat Terapêutico</a><a href="#about" class="font-medium hover:text-pink-500 transition">Sobre</a><a href="#services" class="font-medium hover:text-pink-500 transition">Terapias</a><a href="#journeys" class="font-medium hover:text-pink-500 transition">Jornadas</a><a href="#testimonials" class="font-medium hover:text-pink-500 transition">Depoimentos</a></div></div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+               <a href="#home" class="font-medium hover:text-pink-500 transition">Início</a>
+                <a href="#chatbot-section" class="font-medium hover:text-pink-500 transition">Chat Terapêutico</a>
+                <a href="#about" class="font-medium hover:text-pink-500 transition">Sobre</a>
+                <a href="#services" class="font-medium hover:text-pink-500 transition">Terapias</a>
+                <a href="#journeys" class="font-medium hover:text-pink-500 transition">Jornadas</a>
+                <a href="#testimonials" class="font-medium hover:text-pink-500 transition">Depoimentos</a>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="relative overflow-hidden flex items-center justify-center min-h-[70vh] bg-slate-50">
-        <!-- VÍDEO CORRIGIDO -->
-        <video autoplay loop muted playsinline class="video-background"><source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4" type="video/mp4"></video>
+    <section id="home" class="relative py-16 md:py-24 overflow-hidden flex items-center justify-center min-h-[70vh]">
+        <video autoplay loop muted playsinline class="video-background">
+            <source src="https://videos.pexels.com/video-files/4017225/4017225-uhd_2560_1440_30fps.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
         <div class="absolute inset-0 hero-overlay z-0"></div>
-        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left py-16 md:py-24">
+
+        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center text-white text-center md:text-left">
             <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Encontre Equilíbrio e Bem-Estar com <span class="bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Terapias Holísticas</span></h1>
-                <p class="text-lg text-gray-200 mb-8">Descubra o poder das Barras de Access, Reiki Usui Tibetano e Tarot para uma vida mais plena e consciente.</p>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                    Encontre Equilíbrio e Bem-Estar com <span class="bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">Terapias Holísticas</span>
+                </h1>
+                <p class="text-lg text-gray-200 mb-8">
+                    Descubra o poder das Barras de Access, Reiki Usui Tibetano e Tarot para uma vida mais plena e consciente.
+                </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-                    <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Gostaria de agendar uma sessão." target="_blank" class="btn-primary text-white font-semibold py-3 px-8 rounded-full text-center">Agende sua Sessão</a>
-                    <a href="#services" class="btn-secondary font-semibold py-3 px-8 rounded-full text-center">Saiba Mais</a>
+                    <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Gostaria de agendar uma sessão." target="_blank" class="btn-primary text-white font-semibold py-3 px-8 rounded-full text-center">
+                        Agende sua Sessão
+                    </a>
+                    <a href="#services" class="btn-secondary font-semibold py-3 px-8 rounded-full text-center">
+                        Saiba Mais
+                    </a>
                 </div>
+                
                 <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
                     <div class="flex items-center" data-aos="fade-up" data-aos-delay="200"><div class="bg-pink-100 text-pink-600 rounded-full p-2 mr-3"><i class="fas fa-users"></i></div><div><p class="font-bold text-xl">248</p><p class="text-gray-300 text-sm">Seguidores</p></div></div>
                     <div class="flex items-center" data-aos="fade-up" data-aos-delay="400"><div class="bg-orange-100 text-orange-600 rounded-full p-2 mr-3"><i class="fas fa-file-alt"></i></div><div><p class="font-bold text-xl">14</p><p class="text-gray-300 text-sm">Publicações</p></div></div>
                     <div class="flex items-center" data-aos="fade-up" data-aos-delay="600"><div class="bg-yellow-100 text-yellow-600 rounded-full p-2 mr-3"><i class="fas fa-map-marker-alt"></i></div><div><p class="font-bold text-xl">Curitiba/PR</p><p class="text-gray-300 text-sm">Atendimentos</p></div></div>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000"><img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19b5c22-f58761ba562f9df9d16f649a96c43c39.jpg" alt="Laura Leite" class="rounded-2xl shadow-xl w-full max-w-md"></div>
-        </div>
-    </section>
-
-    <!-- Divisor de Onda -->
-    <div class="wave-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f5f3ff" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,186.7C960,213,1056,235,1152,218.7C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
-    
-    <!-- Chatbot Section -->
-    <section id="chatbot-section" class="py-16 bg-violet-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold mb-4">Simulação de Acolhimento Terapêutico</h2><p class="text-gray-600 max-w-2xl mx-auto">Experimente como nosso primeiro contato pode ser acolhedor e esclarecedor.</p></div>
-            <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg" data-aos="zoom-in-up" data-aos-delay="200">
-                <div class="chat-container" id="chat-messages"></div>
-                <div id="whatsapp-redirect-container" class="p-4 border-t bg-gray-50 rounded-b-lg hidden"><a href="#" target="_blank" class="chat-action-button"><i class="fab fa-whatsapp mr-2"></i> Agendar Sessão no WhatsApp</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-slate-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center" data-aos="fade-right"><img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b7b933-18411c831d0c17ef5b22b5e8954b7193.jpg" alt="Laura Leite" class="rounded-2xl shadow-lg w-full max-w-xs"></div>
-                <div class="md:w-2/3 md:pl-12" data-aos="fade-left">
-                    <h2 class="text-3xl font-bold mb-6">Sobre Laura Leite</h2>
-                    <p class="text-gray-600 mb-6">Terapeuta holística dedicada a guiar pessoas em suas jornadas de autoconhecimento, cura e expansão da consciência. Com um profundo respeito pelo ser humano em sua integralidade, utilizo ferramentas poderosas para promover o bem-estar físico, mental e emocional.</p>
-                    <p class="text-gray-600 mb-6">Minha missão é criar um espaço seguro e acolhedor onde você possa se reconectar com sua essência, liberar bloqueios e acessar seu potencial máximo. Atendo em Curitiba/PR, oferecendo sessões personalizadas.</p>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                <div class="relative">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19b5c22-f58761ba562f9df9d16f649a96c43c39.jpg" alt="Laura Leite" class="rounded-2xl shadow-xl w-full max-w-md">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Divisor de Onda -->
-    <div class="wave-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path class="fill-rose-50" fill-opacity="1" d="M0,224L48,208C96,192,192,160,288,160C384,160,480,192,576,218.7C672,245,768,267,864,256C960,245,1056,203,1152,186.7C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
+    <!-- Chatbot Section -->
+    <section id="chatbot-section" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Simulação de Acolhimento Terapêutico</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Experimente como nosso primeiro contato pode ser acolhedor e esclarecedor, disponível para você a qualquer momento.
+                </p>
+            </div>
+            <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="chat-container" id="chat-messages"></div>
+                <div id="whatsapp-redirect-container" class="p-4 border-t border-gray-200 bg-gray-50 rounded-b-lg hidden">
+                    <a href="#" target="_blank" class="chat-action-button">
+                        <i class="fab fa-whatsapp mr-2"></i> Agendar Sessão no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center" data-aos="fade-right" data-aos-duration="800">
+                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b7b933-18411c831d0c17ef5b22b5e8954b7193.jpg" alt="Laura Leite" class="rounded-2xl shadow-lg w-full max-w-xs">
+                </div>
+                <div class="md:w-2/3 md:pl-12" data-aos="fade-left" data-aos-duration="800">
+                    <h2 class="text-3xl font-bold mb-6">Sobre Laura Leite</h2>
+                    <p class="text-gray-600 mb-6">Terapeuta holística dedicada a guiar pessoas em suas jornadas de autoconhecimento, cura e expansão da consciência. Com um profundo respeito pelo ser humano em sua integralidade, utilizo ferramentas poderosas para promover o bem-estar físico, mental e emocional.</p>
+                    <p class="text-gray-600 mb-6">Minha missão é criar um espaço seguro e acolhedor onde você possa se reconectar com sua essência, liberar bloqueios e acessar seu potencial máximo. Atendo em Curitiba/PR, oferecendo sessões personalizadas de Barras de Access, Reiki e Leituras Intuitivas de Tarot.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-pink-50 border border-pink-100 rounded-lg px-4 py-2" data-aos="fade-up" data-aos-delay="100"><p class="font-medium text-pink-600">Terapias Energéticas</p></div>
+                        <div class="bg-orange-50 border border-orange-100 rounded-lg px-4 py-2" data-aos="fade-up" data-aos-delay="200"><p class="font-medium text-orange-600">Autoconhecimento</p></div>
+                        <div class="bg-yellow-50 border border-yellow-100 rounded-lg px-4 py-2" data-aos="fade-up" data-aos-delay="300"><p class="font-medium text-yellow-600">Atendimento em Curitiba</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-rose-50">
+    <section id="services" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-3xl font-bold mb-4">Conheça as Ferramentas de Transformação</h2><p class="text-gray-600 max-w-2xl mx-auto">Cada terapia é um convite para uma jornada única de cura e redescoberta.</p></div>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Conheça as Ferramentas de Transformação</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Cada terapia é um convite para uma jornada única de cura e redescoberta.</p>
+            </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition feature-card" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-brain text-2xl text-pink-500"></i></div><h3 class="text-xl font-bold mb-3">Barras de Access</h3><p class="text-gray-600">Libera pensamentos e padrões limitantes através de toques suaves na cabeça, proporcionando relaxamento e clareza mental.</p></div>
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition feature-card" data-aos="fade-up" data-aos-delay="200"><div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-hands-helping text-2xl text-orange-500"></i></div><h3 class="text-xl font-bold mb-3">Reiki Usui Tibetano</h3><p class="text-gray-600">Canalização de energia vital que equilibra os chakras, promove a cura e alivia o estresse físico e emocional.</p></div>
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition feature-card" data-aos="fade-up" data-aos-delay="300"><div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-star-of-life text-2xl text-yellow-500"></i></div><h3 class="text-xl font-bold mb-3">Tarot - Leituras Intuitivas</h3><p class="text-gray-600">Ferramenta de autoconhecimento que oferece orientação, clareza e insights sobre seus caminhos e desafios.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition feature-card" data-aos="fade-up" data-aos-delay="100"><div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-brain text-2xl text-pink-500"></i></div><h3 class="text-xl font-bold mb-3">Barras de Access</h3><p class="text-gray-600">Uma terapia corporal que, através de toques suaves em 32 pontos na cabeça, libera pensamentos, crenças e padrões limitantes, proporcionando relaxamento profundo e clareza mental.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition feature-card" data-aos="fade-up" data-aos-delay="200"><div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-hands-helping text-2xl text-orange-500"></i></div><h3 class="text-xl font-bold mb-3">Reiki Usui Tibetano</h3><p class="text-gray-600">Técnica de canalização de energia vital universal através da imposição de mãos, que equilibra os centros de energia (chakras), promove a cura e alivia o estresse físico e emocional.</p></div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition feature-card" data-aos="fade-up" data-aos-delay="300"><div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-4"><i class="fas fa-star-of-life text-2xl text-yellow-500"></i></div><h3 class="text-xl font-bold mb-3">Tarot - Leituras Intuitivas</h3><p class="text-gray-600">Uma ferramenta de autoconhecimento que utiliza arquétipos para trazer à luz questões do inconsciente, oferecendo orientação, clareza e insights sobre seus caminhos e desafios.</p></div>
+            </div>
+            <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Gostaria de saber mais sobre as terapias." target="_blank" class="btn-primary text-white font-semibold py-3 px-8 rounded-full inline-block">Quero Saber Mais!</a>
             </div>
         </div>
     </section>
-
-    <!-- Divisor de Onda -->
-    <div class="wave-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path class="fill-slate-50" fill-opacity="1" d="M0,128L48,138.7C96,149,192,171,288,170.7C384,171,480,149,576,128C672,107,768,85,864,101.3C960,117,1056,171,1152,192C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></div>
 
     <!-- Instagram Videos Section -->
-    <section id="video-demo" class="py-16 bg-slate-50">
+    <section id="video-demo" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold mb-4">Conheça Nossas Terapias</h2><p class="text-gray-600 max-w-2xl mx-auto">Veja um pouco mais sobre o nosso trabalho e as energias que movimentamos.</p></div>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Conheça Nossas Terapias</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Veja um pouco mais sobre o nosso trabalho e as energias que movimentamos.
+                </p>
+            </div>
             <div class="instagram-video-grid" data-aos="fade-up" data-aos-delay="200">
-                <div class="instagram-video-embed"><iframe src="https://www.instagram.com/reel/DM_KlFYyI2W/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
-                <div class="instagram-video-embed"><iframe src="https://www.instagram.com/reel/DLvPKDdglJV/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
-                <div class="instagram-video-embed"><iframe src="https://www.instagram.com/reel/DMyekGfADUM/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe></div>
+                <div class="instagram-video-embed">
+                    <iframe src="https://www.instagram.com/reel/DM_KlFYyI2W/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
+                <div class="instagram-video-embed">
+                    <iframe src="https://www.instagram.com/reel/DLvPKDdglJV/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
+                <div class="instagram-video-embed">
+                    <iframe src="https://www.instagram.com/reel/DMyekGfADUM/embed" width="320" height="420" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Parallax Section (IMAGEM CORRIGIDA) -->
-    <section class="parallax-section py-24 text-white relative" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1932&auto=format&fit=crop');">
+    <!-- Parallax Call to Action Section -->
+    <section class="parallax-section py-24 text-white relative" style="background-image: url('https://images.unsplash.com/photo-1540450596910-1551a6d213b2?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
         <div class="absolute inset-0 bg-black opacity-60"></div>
         <div class="container mx-auto px-4 relative z-10 text-center" data-aos="fade-up">
             <h2 class="text-4xl md:text-5xl font-bold mb-6">Pronta para iniciar sua jornada?</h2>
@@ -317,18 +546,22 @@
     </section>
 
     <!-- Journeys Section -->
-    <section id="journeys" class="py-16 bg-emerald-50">
+    <section id="journeys" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold mb-4">Jornadas de Transformação</h2><p class="text-gray-600 max-w-2xl mx-auto">Conheça as histórias de quem se permitiu mergulhar no autoconhecimento e floresceu.</p></div>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Jornadas de Transformação</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Conheça as histórias de quem se permitiu mergulhar no autoconhecimento e floresceu.</p>
+            </div>
+
             <div class="relative premium-carousel-container" data-aos="fade-up" data-aos-delay="200">
                 <button id="premium-scroll-left" class="carousel-btn left"><i class="fas fa-chevron-left"></i></button>
                 <div class="premium-members-feed" id="premium-members-carousel">
-                    <div class="member-card" data-member-id="1"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18b498f-e866fdbadd666a803174c3f390a60ee8.jpg" alt="Capa da Mariana"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3>Mariana S.</h3><p>Jornada de Clareza</p></div></div>
-                    <div class="member-card" data-member-id="2"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18d301d-6c0dce77e6e9eca96b99418e1150be1e.jpg" alt="Capa do João"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3>João P.</h3><p>Equilíbrio Restaurado</p></div></div>
-                    <div class="member-card" data-member-id="3"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18ee40e-d999df9346e8ad7e74948c24c8751cf3.jpg" alt="Capa da Beatriz"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3>Beatriz C.</h3><p>Propósito Redescoberto</p></div></div>
-                    <div class="member-card" data-member-id="4"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd190d818-04e1afe0d2be8cdd7ea0c3e363ca0ab4.jpg" alt="Capa do Carlos"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3>Carlos R.</h3><p>Alívio e Leveza</p></div></div>
-                    <div class="member-card" data-member-id="5"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd191317e-e7f2a75588083679b79b2c503ef32c87.jpg" alt="Capa da Sofia"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3>Sofia M.</h3><p>Confiança Renovada</p></div></div>
-                    <div class="member-card" data-member-id="6"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19389f7-275712548560791d6b5249432edaed9a.jpg" alt="Capa do Pedro"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3>Pedro G.</h3><p>Caminhos Abertos</p></div></div>
+                    <div class="member-card" data-member-id="1"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18b498f-e866fdbadd666a803174c3f390a60ee8.jpg" alt="Capa da Mariana"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3 class="font-bold text-lg mb-1">Mariana S.</h3><p class="text-sm">Jornada de Clareza</p></div></div>
+                    <div class="member-card" data-member-id="2"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18d301d-6c0dce77e6e9eca96b99418e1150be1e.jpg" alt="Capa do João"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3 class="font-bold text-lg mb-1">João P.</h3><p class="text-sm">Equilíbrio Restaurado</p></div></div>
+                    <div class="member-card" data-member-id="3"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18ee40e-d999df9346e8ad7e74948c24c8751cf3.jpg" alt="Capa da Beatriz"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3 class="font-bold text-lg mb-1">Beatriz C.</h3><p class="text-sm">Propósito Redescoberto</p></div></div>
+                    <div class="member-card" data-member-id="4"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd190d818-04e1afe0d2be8cdd7ea0c3e363ca0ab4.jpg" alt="Capa do Carlos"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3 class="font-bold text-lg mb-1">Carlos R.</h3><p class="text-sm">Alívio e Leveza</p></div></div>
+                    <div class="member-card" data-member-id="5"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd191317e-e7f2a75588083679b79b2c503ef32c87.jpg" alt="Capa da Sofia"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3 class="font-bold text-lg mb-1">Sofia M.</h3><p class="text-sm">Confiança Renovada</p></div></div>
+                    <div class="member-card" data-member-id="6"><img class="cover-image" src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19389f7-275712548560791d6b5249432edaed9a.jpg" alt="Capa do Pedro"><div class="overlay"><i class="fas fa-play-circle play-button"></i><h3 class="font-bold text-lg mb-1">Pedro G.</h3><p class="text-sm">Caminhos Abertos</p></div></div>
                 </div>
                 <button id="premium-scroll-right" class="carousel-btn right"><i class="fas fa-chevron-right"></i></button>
             </div>
@@ -336,48 +569,83 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-emerald-50">
+    <section id="testimonials" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold mb-4">O que dizem sobre as sessões</h2><p class="text-gray-600 max-w-2xl mx-auto">Experiências reais de pessoas que se permitiram essa conexão.</p></div>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">O que dizem sobre as sessões</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experiências reais de pessoas que se permitiram essa conexão.</p>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-white p-6 rounded-xl border" data-aos="fade-up" data-aos-delay="100"><div class="flex items-center mb-4"><img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Juliana" class="w-12 h-12 rounded-full mr-4"><div><h4 class="font-bold">Juliana M.</h4><p class="text-sm text-gray-500">Cliente de Reiki</p></div></div><p class="text-gray-600 mb-4">"A sessão de Reiki com a Laura foi transformadora. Senti uma paz e um alívio que não sentia há anos."</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
-                <div class="testimonial-card bg-white p-6 rounded-xl border" data-aos="fade-up" data-aos-delay="200"><div class="flex items-center mb-4"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Marcos" class="w-12 h-12 rounded-full mr-4"><div><h4 class="font-bold">Marcos P.</h4><p class="text-sm text-gray-500">Cliente de Barras</p></div></div><p class="text-gray-600 mb-4">"Eu era cético, mas as Barras de Access me trouxeram uma clareza mental impressionante. Minha ansiedade diminuiu muito."</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
-                <div class="testimonial-card bg-white p-6 rounded-xl border" data-aos="fade-up" data-aos-delay="300"><div class="flex items-center mb-4"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Carla" class="w-12 h-12 rounded-full mr-4"><div><h4 class="font-bold">Carla S.</h4><p class="text-sm text-gray-500">Cliente de Tarot</p></div></div><p class="text-gray-600 mb-4">"A leitura de Tarot foi muito além do que eu esperava. A Laura tem uma intuição incrível e me ajudou a ver meus desafios."</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                <div class="testimonial-card bg-white p-6 rounded-xl border border-gray-100" data-aos="fade-up" data-aos-delay="100"><div class="flex items-center mb-4"><img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Juliana" class="w-12 h-12 rounded-full mr-4"><div><h4 class="font-bold">Juliana M.</h4><p class="text-gray-500 text-sm">Cliente de Reiki</p></div></div><p class="text-gray-600 mb-4">"A sessão de Reiki com a Laura foi transformadora. Senti uma paz e um alívio que não sentia há anos. Uma energia incrível!"</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                <div class="testimonial-card bg-white p-6 rounded-xl border border-gray-100" data-aos="fade-up" data-aos-delay="200"><div class="flex items-center mb-4"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Marcos" class="w-12 h-12 rounded-full mr-4"><div><h4 class="font-bold">Marcos P.</h4><p class="text-gray-500 text-sm">Cliente de Barras de Access</p></div></div><p class="text-gray-600 mb-4">"Eu era cético, mas as Barras de Access me trouxeram uma clareza mental impressionante. Minha ansiedade diminuiu muito. Recomendo!"</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                <div class="testimonial-card bg-white p-6 rounded-xl border border-gray-100" data-aos="fade-up" data-aos-delay="300"><div class="flex items-center mb-4"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Carla" class="w-12 h-12 rounded-full mr-4"><div><h4 class="font-bold">Carla S.</h4><p class="text-gray-500 text-sm">Cliente de Tarot</p></div></div><p class="text-gray-600 mb-4">"A leitura de Tarot foi muito além do que eu esperava. A Laura tem uma intuição incrível e me ajudou a ver meus desafios por uma nova perspectiva."</p><div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
             </div>
         </div>
     </section>
-    
-    <!-- Divisor de Onda -->
-    <div class="wave-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path class="fill-slate-50" fill-opacity="1" d="M0,64L40,90.7C80,117,160,171,240,192C320,213,400,203,480,181.3C560,160,640,128,720,133.3C800,139,880,181,960,181.3C1040,181,1120,139,1200,112C1280,85,1360,75,1400,69.3L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg></div>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-gradient-to-r from-pink-50 to-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Sua Jornada de Bem-Estar</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Invista em você e receba acesso a um caminho de cuidado contínuo e acolhedor.</p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold mb-4">Pacote de Acolhimento</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span>Sessão inicial de alinhamento</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span>Acesso a materiais de apoio</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span>Canal direto para dúvidas</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span>Condições especiais para pacotes</span></li>
+                            <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-2"></i><span>Acompanhamento personalizado</span></li>
+                        </ul>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                            <div class="flex items-start"><i class="fas fa-gift text-yellow-500 text-xl mr-3 mt-1"></i><div><h4 class="font-bold text-yellow-700 mb-1">Bônus Especial</h4><p class="text-yellow-600">Ao agendar seu pacote de 3 sessões, receba uma mini-leitura de Tarot como presente!</p></div></div>
+                        </div>
+                        <a href="https://api.whatsapp.com/send?phone=5541000000000&text=Olá! Quero saber mais sobre o Pacote de Acolhimento." target="_blank" class="btn-primary text-white font-semibold py-3 px-8 rounded-full w-full text-center block">Quero Meu Pacote!</a>
+                    </div>
+                    <div class="md:w-1/2 bg-gray-50 p-8 flex items-center justify-center">
+                        <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135728.png" alt="Coração e Mãos" class="w-40 h-40 mx-auto mb-4">
+                            <h4 class="text-xl font-bold mb-2">Cuidado e Acolhimento</h4>
+                            <p class="text-gray-600 mb-4">Um espaço seguro para você florescer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Instagram Feed -->
-    <section class="py-16 bg-slate-50">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up"><h2 class="text-3xl font-bold mb-4">Siga no Instagram</h2><p class="text-gray-600 max-w-2xl mx-auto">@lauraleiteterapias - Dicas, reflexões e conteúdos sobre bem-estar</p></div>
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Siga no Instagram</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">@lauraleiteterapias - Dicas, reflexões e conteúdos sobre bem-estar</p>
+            </div>
             <div class="instagram-carousel-container" data-aos="fade-up" data-aos-delay="200">
                 <button id="scroll-left" class="carousel-btn left"><i class="fas fa-chevron-left"></i></button>
                 <div class="instagram-feed" id="instagram-feed-carousel">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18b498f-e866fdbadd666a803174c3f390a60ee8.jpg" alt="Post Instagram 1" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18d301d-6c0dce77e6e9eca96b99418e1150be1e.jpg" alt="Post Instagram 2" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd18ee40e-d999df9346e8ad7e74948c24c8751cf3.jpg" alt="Post Instagram 3" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd190d818-04e1afe0d2be8cdd7ea0c3e363ca0ab4.jpg" alt="Post Instagram 4" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd191317e-e7f2a75588083679b79b2c503ef32c87.jpg" alt="Post Instagram 5" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd19389f7-275712548560791d6b5249432edaed9a.jpg" alt="Post Instagram 6" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b3d3f3-19c7fb30c4b55fedcae4d673b23222f2.jpg" alt="Post Instagram 7" class="rounded-lg">
-                    <img src="https://fundacaolume.org/cloud-lume/uploads/68b0cd1b7b933-18411c831d0c17ef5b22b5e8954b7193.jpg" alt="Post Instagram 8" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 1" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 2" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/2569847/pexels-photo-2569847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 3" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 4" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 5" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 6" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/3771077/pexels-photo-3771077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 7" class="rounded-lg">
+                    <img src="https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Instagram Post 8" class="rounded-lg">
                 </div>
                 <button id="scroll-right" class="carousel-btn right"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <div class="mt-8 text-center" data-aos="fade-up" data-aos-delay="400"><a href="https://instagram.com/lauraleiteterapias" target="_blank" class="btn-secondary font-semibold py-3 px-8 rounded-full inline-block"><i class="fab fa-instagram mr-2"></i> Seguir no Instagram</a></div>
+            <div class="mt-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://instagram.com/lauraleiteterapias" target="_blank" class="btn-secondary font-semibold py-3 px-8 rounded-full inline-block">
+                    <i class="fab fa-instagram mr-2"></i> Seguir no Instagram
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- Divisor de Onda -->
-    <div class="wave-container" style="transform: rotate(180deg);">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path class="fill-gray-900" fill-opacity="1" d="M0,64L40,90.7C80,117,160,171,240,192C320,213,400,203,480,181.3C560,160,640,128,720,133.3C800,139,880,181,960,181.3C1040,181,1120,139,1200,112C1280,85,1360,75,1400,69.3L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-        </svg>
-    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -397,101 +665,205 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
 
-        // --- Scripts de Menu e Navegação ---
-        document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
-        document.querySelectorAll('#mobile-menu a, footer a[href^="#"]').forEach(link => link.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden')));
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const headerOffset = document.querySelector('header').offsetHeight;
-                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerOffset - 20;
+                    const headerOffset = document.querySelector('header').offsetHeight; 
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerOffset - 20;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
             });
         });
 
-        // --- Scripts de Carrossel ---
-        const setupCarousel = (carouselId, leftBtnId, rightBtnId) => {
-            const carousel = document.getElementById(carouselId);
-            if(carousel) {
-                document.getElementById(leftBtnId).addEventListener('click', () => carousel.scrollBy({ left: -200, behavior: 'smooth' }));
-                document.getElementById(rightBtnId).addEventListener('click', () => carousel.scrollBy({ left: 200, behavior: 'smooth' }));
-            }
-        };
-        setupCarousel('instagram-feed-carousel', 'scroll-left', 'scroll-right');
-        setupCarousel('premium-members-carousel', 'premium-scroll-left', 'premium-scroll-right');
-
-        // --- Scripts de Modal (Lightbox) ---
-        const imageModal = document.getElementById('image-modal');
-        const openImageModal = (src) => { if(imageModal) { document.getElementById('modal-image').src = src; imageModal.classList.add('active'); imageModal.classList.remove('hidden'); document.body.classList.add('modal-open'); } };
-        const closeImageModal = () => { if(imageModal) { imageModal.classList.remove('active'); setTimeout(() => { imageModal.classList.add('hidden'); document.body.classList.remove('modal-open'); }, 300); } };
-        document.querySelectorAll('#instagram-feed-carousel img').forEach(img => img.addEventListener('click', () => openImageModal(img.src)));
-        if(imageModal) {
-            document.getElementById('close-image-modal').addEventListener('click', closeImageModal);
-            imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeImageModal(); });
+        const instagramCarousel = document.getElementById('instagram-feed-carousel');
+        const scrollLeftBtn = document.getElementById('scroll-left');
+        const scrollRightBtn = document.getElementById('scroll-right');
+        if(instagramCarousel) {
+            scrollLeftBtn.addEventListener('click', () => instagramCarousel.scrollBy({ left: -200, behavior: 'smooth' }));
+            scrollRightBtn.addEventListener('click', () => instagramCarousel.scrollBy({ left: 200, behavior: 'smooth' }));
+        }
+        
+        const premiumCarousel = document.getElementById('premium-members-carousel');
+        const premiumScrollLeftBtn = document.getElementById('premium-scroll-left');
+        const premiumScrollRightBtn = document.getElementById('premium-scroll-right');
+        if(premiumCarousel) {
+            premiumScrollLeftBtn.addEventListener('click', () => premiumCarousel.scrollBy({ left: -200, behavior: 'smooth' }));
+            premiumScrollRightBtn.addEventListener('click', () => premiumCarousel.scrollBy({ left: 200, behavior: 'smooth' }));
         }
 
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeImageModalBtn = document.getElementById('close-image-modal');
+        
+        function openImageModal(src) {
+            modalImage.src = src;
+            imageModal.classList.add('active'); 
+            imageModal.classList.remove('hidden'); 
+            document.body.classList.add('modal-open'); 
+        }
+
+        function closeImageModal() {
+            imageModal.classList.remove('active');
+            setTimeout(() => {
+                imageModal.classList.add('hidden');
+                document.body.classList.remove('modal-open'); 
+            }, 300); 
+        }
+
+        document.querySelectorAll('#instagram-feed-carousel img').forEach(img => {
+            img.addEventListener('click', () => openImageModal(img.src));
+        });
+        if(closeImageModalBtn) closeImageModalBtn.addEventListener('click', closeImageModal);
+        if(imageModal) imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) closeImageModal();
+        });
+
         const memberModal = document.getElementById('member-modal');
+        const memberModalAvatar = document.getElementById('member-modal-avatar');
+        const memberModalName = document.getElementById('member-modal-name');
+        const memberModalRole = document.getElementById('member-modal-role');
+        const memberModalStory = document.getElementById('member-modal-story');
+        const closeMemberModalBtn = document.getElementById('close-member-modal');
+        const memberModalWhatsappLink = document.getElementById('member-modal-whatsapp-link');
+        
         const journeysData = {
-            1: { name: "Mariana S.", role: "Jornada de Clareza", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd18b498f-e866fdbadd666a803174c3f390a60ee8.jpg", story: "Mariana sentia-se perdida. Após sessões de Tarot e Barras de Access, encontrou clareza para seguir um novo caminho profissional com mais confiança e propósito.", whatsappText: "Olá, Laura! A história da Mariana me inspirou. Gostaria de saber mais sobre a jornada de clareza." },
+            1: { name: "Mariana S.", role: "Jornada de Clareza", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd18b498f-e866fdbadd666a803174c3f390a60ee8.jpg", story: "Mariana sentia-se perdida em suas decisões. Após sessões de Tarot e Barras de Access, encontrou clareza para seguir um novo caminho profissional com mais confiança e propósito.", whatsappText: "Olá, Laura! A história da Mariana me inspirou. Gostaria de saber mais sobre a jornada de clareza." },
             2: { name: "João P.", role: "Equilíbrio Restaurado", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd18d301d-6c0dce77e6e9eca96b99418e1150be1e.jpg", story: "Com o estresse do dia a dia, João sofria com ansiedade. As sessões de Reiki trouxeram um profundo relaxamento e o ajudaram a restaurar seu equilíbrio energético e emocional.", whatsappText: "Olá, Laura! A história do João me inspirou. Gostaria de saber como restaurar meu equilíbrio." },
             3: { name: "Beatriz C.", role: "Propósito Redescoberto", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd18ee40e-d999df9346e8ad7e74948c24c8751cf3.jpg", story: "Beatriz sentia um vazio e falta de direção. A combinação das terapias a reconectou com sua essência, ajudando-a a redescobrir suas paixões e alinhar sua vida com seu verdadeiro propósito.", whatsappText: "Olá, Laura! A história da Beatriz me inspirou. Quero redescobrir meu propósito." },
             4: { name: "Carlos R.", role: "Alívio e Leveza", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd190d818-04e1afe0d2be8cdd7ea0c3e363ca0ab4.jpg", story: "Carregando pesos do passado, Carlos encontrou nas Barras de Access uma forma de liberar velhos padrões e traumas, sentindo uma leveza e liberdade que não experimentava há anos.", whatsappText: "Olá, Laura! A história do Carlos me inspirou. Busco mais alívio e leveza." },
             5: { name: "Sofia M.", role: "Confiança Renovada", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd191317e-e7f2a75588083679b79b2c503ef32c87.jpg", story: "A insegurança impedia Sofia de avançar. Com o apoio do Tarot e a energia do Reiki, ela fortaleceu sua autoestima e renovou a confiança para realizar seus sonhos.", whatsappText: "Olá, Laura! A história da Sofia me inspirou. Preciso renovar minha confiança." },
             6: { name: "Pedro G.", role: "Caminhos Abertos", avatar: "https://fundacaolume.org/cloud-lume/uploads/68b0cd19389f7-275712548560791d6b5249432edaed9a.jpg", story: "Pedro sentia que sua vida estava estagnada. As terapias ajudaram a dissolver bloqueios energéticos, abrindo caminhos para novas oportunidades e um fluxo de prosperidade.", whatsappText: "Olá, Laura! A história do Pedro me inspirou. Quero abrir meus caminhos." }
         };
-        const openMemberModal = (memberId) => {
+
+        function openMemberModal(memberId) {
             const member = journeysData[memberId];
-            if (!member || !memberModal) return;
-            document.getElementById('member-modal-avatar').src = member.avatar; document.getElementById('member-modal-name').textContent = member.name; document.getElementById('member-modal-role').textContent = member.role; document.getElementById('member-modal-story').textContent = member.story;
-            document.getElementById('member-modal-whatsapp-link').href = `https://api.whatsapp.com/send?phone=5541000000000&text=${encodeURIComponent(member.whatsappText)}`;
-            memberModal.classList.add('active'); memberModal.classList.remove('hidden'); document.body.classList.add('modal-open');
-        };
-        const closeMemberModal = () => { if(memberModal) { memberModal.classList.remove('active'); setTimeout(() => { memberModal.classList.add('hidden'); document.body.classList.remove('modal-open'); }, 300); } };
-        document.querySelectorAll('.premium-members-feed .member-card').forEach(card => card.addEventListener('click', () => openMemberModal(card.dataset.memberId)));
-        if(memberModal) {
-            document.getElementById('close-member-modal').addEventListener('click', closeMemberModal);
-            memberModal.addEventListener('click', (e) => { if (e.target === memberModal) closeMemberModal(); });
+            if (!member) return;
+            memberModalAvatar.src = member.avatar;
+            memberModalName.textContent = member.name;
+            memberModalRole.textContent = member.role;
+            memberModalStory.textContent = member.story;
+            const phoneNumber = '5541000000000';
+            const prefilledMessage = encodeURIComponent(member.whatsappText);
+            memberModalWhatsappLink.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${prefilledMessage}`;
+            memberModal.classList.add('active');
+            memberModal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
         }
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') { closeImageModal(); closeMemberModal(); }
+        function closeMemberModal() {
+            memberModal.classList.remove('active');
+            setTimeout(() => {
+                memberModal.classList.add('hidden');
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+
+        document.querySelectorAll('.premium-members-feed .member-card').forEach(card => {
+            card.addEventListener('click', () => openMemberModal(card.dataset.memberId));
+        });
+        if(closeMemberModalBtn) closeMemberModalBtn.addEventListener('click', closeMemberModal);
+        if(memberModal) memberModal.addEventListener('click', (e) => {
+            if (e.target === memberModal) closeMemberModal();
         });
 
-        // --- Script do Chatbot ---
-        const chatContainer = document.getElementById('chat-messages');
-        let chatbotInitialized = false;
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (imageModal.classList.contains('active')) closeImageModal();
+                if (memberModal.classList.contains('active')) closeMemberModal();
+            }
+        });
+
+        const chatMessagesContainer = document.getElementById('chat-messages');
+        const whatsappRedirectContainer = document.getElementById('whatsapp-redirect-container');
+        const whatsappRedirectButton = whatsappRedirectContainer.querySelector('a');
+        const clientAvatar = 'https://randomuser.me/api/portraits/women/75.jpg';
+        const chatbotAvatar = 'https://cdn-icons-png.flaticon.com/512/4712/4712019.png';
+        const WHATSAPP_PHONE_NUMBER = '5541000000000';
+
         const chatFlow = [
             { sender: 'client', text: 'Olá! 👋 Gostaria de saber mais sobre as terapias.' },
-            { sender: 'chatbot', text: 'Olá! Seja bem-vinda! Sou a assistente virtual da Laura. 😊 Para te ajudar, o que você mais busca? Clareza mental 🧠, relaxamento profundo 🧘‍♀️ ou orientação para seus caminhos ✨?' },
+            { sender: 'chatbot', text: 'Olá! Seja muito bem-vinda! Sou a assistente virtual da Laura. Que bom te ver por aqui. 😊 Para te ajudar melhor, o que você mais busca neste momento? Mais clareza mental 🧠, relaxamento profundo 🧘‍♀️ ou orientação para seus caminhos ✨?' },
             { sender: 'client', text: 'Busco um pouco de tudo, mas principalmente relaxamento.' },
-            { sender: 'chatbot', text: 'Entendo. A vida pode ser bem agitada. Terapias como Reiki e Barras de Access são maravilhosas para isso, pois ajudam a liberar o estresse. 😌' },
+            { sender: 'chatbot', text: 'Entendo perfeitamente. A vida moderna pode ser bem agitada. Terapias como Reiki e Barras de Access são maravilhosas para isso, pois ajudam a liberar o estresse acumulado e trazem uma sensação de paz imediata. 😌' },
             { sender: 'client', text: 'Parece ótimo! Como funciona?' },
-            { sender: 'chatbot', text: 'É uma experiência única de autocuidado! Laura cria um ambiente seguro para você relaxar e receber a energia. Muitas pessoas relatam sentir a mente mais leve já na primeira sessão. 💖' },
+            { sender: 'chatbot', text: 'É uma experiência única de autocuidado! Laura cria um ambiente seguro para você simplesmente relaxar e receber a energia. Muitas pessoas relatam sentir a mente mais leve e o corpo mais tranquilo já na primeira sessão. 💖' },
             { sender: 'client', text: 'Gostei! Quero tentar.' },
-            { sender: 'chatbot', text: 'Que maravilha! O próximo passo é conversarmos pelo WhatsApp para agendarmos. Vamos dar esse passo juntas em direção ao seu bem-estar?' },
+            { sender: 'chatbot', text: 'Que maravilha! Fico feliz em saber. O próximo passo é conversarmos pelo WhatsApp para encontrar o melhor horário para você e tirar qualquer outra dúvida. Vamos dar esse passo juntas em direção ao seu bem-estar?' },
             { sender: 'client', text: 'Sim, vamos!' },
-            { sender: 'chatbot', text: 'Perfeito! ✨ Clicando no botão abaixo, você será direcionada para o WhatsApp da Laura. Estamos te esperando!' , action: 'whatsapp' }
+            { sender: 'chatbot', text: 'Perfeito! ✨ Clicando no botão abaixo, você será direcionada para o WhatsApp da Laura para agendarmos sua sessão. Estamos te esperando para iniciar essa jornada!' , action: 'whatsapp' }
         ];
-        async function runChat() {
-            for (let i = 0; i < chatFlow.length; i++) {
-                const msg = chatFlow[i];
-                await new Promise(r => setTimeout(r, msg.sender === 'client' ? 1500 : 2000));
-                const wrapper = document.createElement('div'); wrapper.className = `chat-message-wrapper ${msg.sender}`;
-                wrapper.innerHTML = `<div class="chat-message-bubble ${msg.sender}"><div>${msg.text}</div></div><img src="${msg.sender === 'client' ? 'https://randomuser.me/api/portraits/women/75.jpg' : 'https://cdn-icons-png.flaticon.com/512/4712/4712019.png'}" class="chat-avatar">`;
-                chatContainer.appendChild(wrapper); chatContainer.scrollTop = chatContainer.scrollHeight;
-                if (msg.action === 'whatsapp') {
-                    const btnContainer = document.getElementById('whatsapp-redirect-container');
-                    btnContainer.querySelector('a').href = `https://api.whatsapp.com/send?phone=5541000000000&text=${encodeURIComponent('Olá, Laura! Vi a simulação no site e gostaria de agendar.')}`;
-                    btnContainer.classList.remove('hidden');
-                }
-            }
+
+        let currentMessageIndex = 0;
+        let chatbotInitialized = false;
+
+        async function addChatMessage(sender, text) {
+            const messageWrapper = document.createElement('div');
+            messageWrapper.className = `chat-message-wrapper ${sender}`;
+            const avatarImg = document.createElement('img');
+            avatarImg.src = sender === 'client' ? clientAvatar : chatbotAvatar;
+            avatarImg.className = 'chat-avatar';
+            const messageBubble = document.createElement('div');
+            messageBubble.className = `chat-message-bubble ${sender}`;
+            messageBubble.innerHTML = `<div>${text}</div>`;
+            messageWrapper.appendChild(messageBubble); 
+            messageWrapper.appendChild(avatarImg); 
+            chatMessagesContainer.appendChild(messageWrapper);
+            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+            messageWrapper.style.opacity = '0';
+            messageWrapper.style.transform = sender === 'client' ? 'translateX(20px)' : 'translateX(-20px)';
+            await new Promise(r => setTimeout(r, 50)); 
+            messageWrapper.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            messageWrapper.style.opacity = '1';
+            messageWrapper.style.transform = 'translateX(0)';
         }
-        new IntersectionObserver((e, o) => { e.forEach(entry => { if(entry.isIntersecting && !chatbotInitialized) { chatbotInitialized = true; runChat(); o.disconnect(); } }); }, { threshold: 0.5 }).observe(chatContainer);
+
+        async function processChatFlow() {
+            if (currentMessageIndex >= chatFlow.length) return;
+            const messageData = chatFlow[currentMessageIndex];
+            const delay = (messageData.sender === 'client' ? 1500 : 2000);
+            await new Promise(r => setTimeout(r, delay));
+            await addChatMessage(messageData.sender, messageData.text);
+            if (messageData.action === 'whatsapp') {
+                const prefilledMessage = encodeURIComponent('Olá, Laura! Vi a simulação no site e gostaria de agendar minha sessão.');
+                whatsappRedirectButton.href = `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE_NUMBER}&text=${prefilledMessage}`;
+                whatsappRedirectContainer.classList.remove('hidden');
+                chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+                return;
+            }
+            currentMessageIndex++;
+            processChatFlow(); 
+        }
+
+        const chatbotObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !chatbotInitialized) {
+                    chatbotInitialized = true;
+                    processChatFlow(); 
+                    chatbotObserver.disconnect(); 
+                }
+            });
+        }, { threshold: 0.5 }); 
+        chatbotObserver.observe(document.getElementById('chatbot-section'));
 
     </script>
 </body>
